@@ -30,7 +30,7 @@ const RegisterComponent = () => {
       })
       .catch((e) => {
         setMessage(e.response.data);
-        //console.log(e);
+        //console.log(e); //找到e.response.data
       });
   };
 
@@ -39,7 +39,7 @@ const RegisterComponent = () => {
       <div>
         {message && <div className="alert alert-danger">{message}</div>}
         <div>
-          <label htmlFor="username">用戶名稱:</label>
+          <label htmlFor="username">用戶名稱：</label>
           <input
             onChange={handleUsername}
             type="text"
@@ -70,7 +70,7 @@ const RegisterComponent = () => {
         </div>
         <br />
         <div className="form-group">
-          <label htmlFor="password">身份：</label>
+          <label htmlFor="role">身份：</label>
           <input
             onChange={handleRole}
             type="text"

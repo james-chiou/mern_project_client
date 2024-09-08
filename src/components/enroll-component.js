@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CourseService from "../services/course.service";
 
-const EnrollComponent = (props) => {
-  let { currentUser, setCurrentUser } = props;
+const EnrollComponent = ({ currentUser, setCurrentUser }) => {
   const navigate = useNavigate();
   let [searchInput, setSearchInput] = useState("");
   let [searchResult, setSearchResult] = useState(null);
@@ -72,17 +71,24 @@ const EnrollComponent = (props) => {
               <div key={course._id} className="card" style={{ width: "18rem" }}>
                 <div className="card-body">
                   <h5 className="card-title">課程名稱：{course.title}</h5>
-                  <p style={{ margin: "0.5rem 0rem" }} className="card-text">
+                  <h5 className="card-title">課程內容：</h5>
+                  <p
+                    style={
+                      ({ margin: "0.5rem 0rem" },
+                      { border: "0.1px solid black" })
+                    }
+                    className="card-text rounded py-2 px-1 pb-5"
+                  >
                     {course.description}
                   </p>
                   <p style={{ margin: "0.5rem 0rem" }}>
-                    學生人數: {course.students.length}
+                    學生人數：{course.students.length}
                   </p>
                   <p style={{ margin: "0.5rem 0rem" }}>
-                    課程價格: {course.price}
+                    課程價格：{course.price}
                   </p>
                   <p style={{ margin: "0.5rem 0rem" }}>
-                    課程講師: {course.instructor.username}
+                    課程講師：{course.instructor.username}
                   </p>
                   <a
                     href="#"

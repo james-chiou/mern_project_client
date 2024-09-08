@@ -1,34 +1,47 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CourseService from "../services/course.service";
 
-const PostCourseComponent = ({ currentUser, setCurrentUser }) => {
-  let [title, setTitle] = useState("");
-  let [description, setDescription] = useState("");
-  let [price, setPrice] = useState(0);
+const EditCourseComponent = ({
+  currentUser,
+  setCurrentUser,
+  courseID,
+  courseTitle,
+  courseDescription,
+  coursePrice,
+}) => {
+  let [newtitle, setNewTitle] = useState(courseTitle);
+  let [newdescription, setNewDescription] = useState(courseDescription);
+  let [newprice, setNewPrice] = useState(coursePrice);
   let [message, setMessage] = useState("");
+
+  //const [editData, setEditData] = useState(null);
+
   const navigate = useNavigate();
   const handleTakeToLogin = () => {
     navigate("/login");
   };
-  const handleChangeTitle = (e) => {
-    setTitle(e.target.value);
+  const handleNewTitle = (e) => {
+    setNewTitle(e.target.value);
   };
-  const handleChangeDesciption = (e) => {
-    setDescription(e.target.value);
+  const handleNewDesciption = (e) => {
+    setNewDescription(e.target.value);
   };
-  const handleChangePrice = (e) => {
-    setPrice(e.target.value);
+  const handleNewPrice = (e) => {
+    setNewPrice(e.target.value);
   };
-  const postCourse = () => {
-    CourseService.post(title, description, price)
+
+  const updateCourse = (e) => {
+    //console.log(e.target);
+    //console.log({ newtitle, newdescription, newprice });
+    CourseService.update(courseID, newtitle, newdescription, newprice)
       .then(() => {
-        window.alert("新課程已創建成功");
+        window.alert("課程內容更新成功 !");
         navigate("/course");
       })
-      .catch((error) => {
-        //console.log(error.response);
-        setMessage(error.response.data);
+      .catch((e) => {
+        //console.log(e.response.data);
+        setMessage(e.response.data);
       });
   };
 
@@ -36,7 +49,7 @@ const PostCourseComponent = ({ currentUser, setCurrentUser }) => {
     <div style={{ padding: "3rem" }}>
       {!currentUser && (
         <div>
-          <p>在發布新課程之前，您必須先登錄。</p>
+          <p>在更新課程內容之前，您必須先登錄。</p>
           <button
             className="btn btn-primary btn-lg"
             onClick={handleTakeToLogin}
@@ -47,10 +60,10 @@ const PostCourseComponent = ({ currentUser, setCurrentUser }) => {
       )}
       {currentUser && currentUser.user.role !== "instructor" && (
         <div>
-          <p>只有講師可以發布新課程。</p>
+          <p>只有講師可以更新課程內容。</p>
         </div>
       )}
-      {currentUser && currentUser.user.role == "instructor" && (
+      {currentUser && (
         <div className="form-group">
           <label for="exampleforTitle">課程標題：</label>
           <input
@@ -58,16 +71,17 @@ const PostCourseComponent = ({ currentUser, setCurrentUser }) => {
             type="text"
             className="form-control"
             id="exampleforTitle"
-            onChange={handleChangeTitle}
+            onChange={handleNewTitle}
+            value={newtitle}
           />
           <br />
           <label for="exampleforContent">課程內容：</label>
           <textarea
             className="form-control"
             id="exampleforContent"
-            //aria-describedby="emailHelp"
             name="content"
-            onChange={handleChangeDesciption}
+            onChange={handleNewDesciption}
+            value={newdescription}
           />
           <br />
           <label for="exampleforPrice">價格：</label>
@@ -76,11 +90,12 @@ const PostCourseComponent = ({ currentUser, setCurrentUser }) => {
             type="number"
             className="form-control"
             id="exampleforPrice"
-            onChange={handleChangePrice}
+            onChange={handleNewPrice}
+            value={newprice}
           />
           <br />
-          <button className="btn btn-primary" onClick={postCourse}>
-            交出表單
+          <button onClick={updateCourse} className="btn btn-primary">
+            編輯完成
           </button>
           <br />
           <br />
@@ -95,4 +110,4 @@ const PostCourseComponent = ({ currentUser, setCurrentUser }) => {
   );
 };
 
-export default PostCourseComponent;
+export default EditCourseComponent;

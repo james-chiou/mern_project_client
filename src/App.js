@@ -9,9 +9,27 @@ import AuthService from "./services/auth.service";
 import CourseComponent from "./components/course-component";
 import PostCourseComponent from "./components/postCourse-component";
 import EnrollComponent from "./components/enroll-component";
+import EditCourseComponent from "./components/editCourse-component";
 
 function App() {
   let [currentUser, setCurrentUser] = useState(AuthService.getCurrentUser());
+  let [courseID, setCourseID] = useState("");
+  let [courseTitle, setCourseTitle] = useState("");
+  let [courseDescription, setCourseDescription] = useState("");
+  let [coursePrice, setCoursePrice] = useState(0);
+
+  // let _id = currentUser.user._id;
+  // let editData = (_id) => {
+  //   CourseService.get(_id)
+  //     .then((data) => {
+  //       setCourseID(data.data);
+  //     })
+  //     .catch((e) => {
+  //       console.log(e);
+  //     });
+  // };
+  // editData(_id);
+
   return (
     <BrowserRouter>
       <Routes>
@@ -47,6 +65,10 @@ function App() {
               <CourseComponent
                 currentUser={currentUser}
                 setCurrentUser={setCurrentUser}
+                setCourseID={setCourseID}
+                setCourseTitle={setCourseTitle}
+                setCourseDescription={setCourseDescription}
+                setCoursePrice={setCoursePrice}
               />
             }
           />
@@ -65,6 +87,19 @@ function App() {
               <EnrollComponent
                 currentUser={currentUser}
                 setCurrentUser={setCurrentUser}
+              />
+            }
+          />
+          <Route
+            path="edit"
+            element={
+              <EditCourseComponent
+                currentUser={currentUser}
+                setCurrentUser={setCurrentUser}
+                courseID={courseID}
+                courseTitle={courseTitle}
+                courseDescription={courseDescription}
+                coursePrice={coursePrice}
               />
             }
           />
