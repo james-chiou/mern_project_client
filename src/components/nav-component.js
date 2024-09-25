@@ -89,6 +89,11 @@ const NavComponent = ({ currentUser, setCurrentUser }) => {
                     </Link>
                   </li>
                 )}
+                <li className="nav-item">
+                  <Link className="nav-link" to="/about">
+                    關於網站
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>

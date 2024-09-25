@@ -10,6 +10,7 @@ import CourseComponent from "./components/course-component";
 import PostCourseComponent from "./components/postCourse-component";
 import EnrollComponent from "./components/enroll-component";
 import EditCourseComponent from "./components/editCourse-component";
+import Aboutcomponent from "./components/about-component";
 
 function App() {
   let [currentUser, setCurrentUser] = useState(AuthService.getCurrentUser());
@@ -17,18 +18,6 @@ function App() {
   let [courseTitle, setCourseTitle] = useState("");
   let [courseDescription, setCourseDescription] = useState("");
   let [coursePrice, setCoursePrice] = useState(0);
-
-  // let _id = currentUser.user._id;
-  // let editData = (_id) => {
-  //   CourseService.get(_id)
-  //     .then((data) => {
-  //       setCourseID(data.data);
-  //     })
-  //     .catch((e) => {
-  //       console.log(e);
-  //     });
-  // };
-  // editData(_id);
 
   return (
     <BrowserRouter>
@@ -103,6 +92,7 @@ function App() {
               />
             }
           />
+          <Route path="about" element={<Aboutcomponent />} />
         </Route>
       </Routes>
     </BrowserRouter>
