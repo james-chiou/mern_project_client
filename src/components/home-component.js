@@ -15,9 +15,9 @@ const HomeComponent = () => {
             {/* <button className="btn btn-primary btn-lg" type="button">
               看看它怎麼運作。
             </button> */}
-            <a href="/about" className="btn btn-primary btn-lg" type="button">
+            <Link to="/about" className="btn btn-primary btn-lg" type="button">
               看看它怎麼運作。
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -31,9 +31,9 @@ const HomeComponent = () => {
               {/* <button className="btn btn-outline-light" type="button">
                 登錄會員、或者註冊一個帳號
               </button> */}
-              <a href="/login" className="btn btn-outline-light">
+              <Link to="/login" className="btn btn-outline-light">
                 登錄會員、或者註冊一個帳號
-              </a>
+              </Link>
             </div>
           </div>
           <div className="col-md-6">
@@ -45,9 +45,9 @@ const HomeComponent = () => {
               {/* <button className="btn btn-outline-secondary" type="button">
                 今天開始開設課程
               </button> */}
-              <a href="/login" className="btn btn-outline-secondary">
+              <Link to="/login" className="btn btn-outline-secondary">
                 今天開始開設課程
-              </a>
+              </Link>
             </div>
           </div>
         </div>
