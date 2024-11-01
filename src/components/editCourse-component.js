@@ -15,8 +15,6 @@ const EditCourseComponent = ({
   let [newprice, setNewPrice] = useState(coursePrice);
   let [message, setMessage] = useState("");
 
-  //const [editData, setEditData] = useState(null);
-
   const navigate = useNavigate();
   const handleTakeToLogin = () => {
     navigate("/login");
@@ -31,9 +29,9 @@ const EditCourseComponent = ({
     setNewPrice(e.target.value);
   };
 
+  // 編輯課程
   const updateCourse = (e) => {
     //console.log(e.target);
-    //console.log({ newtitle, newdescription, newprice });
     CourseService.update(courseID, newtitle, newdescription, newprice)
       .then(() => {
         window.alert("課程內容更新成功 !");

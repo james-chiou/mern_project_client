@@ -13,8 +13,10 @@ import EditCourseComponent from "./components/editCourse-component";
 import Aboutcomponent from "./components/about-component";
 
 function App() {
+  // 確認使用者身分
   let [currentUser, setCurrentUser] = useState(AuthService.getCurrentUser());
   let [courseID, setCourseID] = useState("");
+  // 更新課程內容
   let [courseTitle, setCourseTitle] = useState("");
   let [courseDescription, setCourseDescription] = useState("");
   let [coursePrice, setCoursePrice] = useState(0);
@@ -33,6 +35,7 @@ function App() {
           <Route
             path="login"
             element={
+              //登入
               <LoginComponent
                 currentUser={currentUser}
                 setCurrentUser={setCurrentUser}
@@ -42,6 +45,7 @@ function App() {
           <Route
             path="profile"
             element={
+              // 個人頁面
               <ProfileComponent
                 currentUser={currentUser}
                 setCurrentUser={setCurrentUser}
@@ -51,6 +55,7 @@ function App() {
           <Route
             path="course"
             element={
+              // 課程頁面
               <CourseComponent
                 currentUser={currentUser}
                 setCurrentUser={setCurrentUser}
@@ -64,6 +69,7 @@ function App() {
           <Route
             path="postCourse"
             element={
+              // 新增課程
               <PostCourseComponent
                 currentUser={currentUser}
                 setCurrentUser={setCurrentUser}
@@ -73,6 +79,7 @@ function App() {
           <Route
             path="enroll"
             element={
+              // 註冊課程
               <EnrollComponent
                 currentUser={currentUser}
                 setCurrentUser={setCurrentUser}
@@ -82,6 +89,7 @@ function App() {
           <Route
             path="edit"
             element={
+              // 更新課程
               <EditCourseComponent
                 currentUser={currentUser}
                 setCurrentUser={setCurrentUser}

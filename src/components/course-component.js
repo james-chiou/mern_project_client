@@ -16,6 +16,7 @@ const CourseComponent = ({
   };
   let [courseData, setCourseData] = useState(null);
 
+  // 刪除課程(教師)
   const handleDelete = (e) => {
     //console.log(e.target.id);
     CourseService.deleteCourse(e.target.id)
@@ -37,6 +38,24 @@ const CourseComponent = ({
       });
   };
 
+  // 課程更新(教師)
+  const handleEdit = (e) => {
+    //console.log(e.target.id);
+    setCourseID(e.target.id);
+    CourseService.getEdit(e.target.id)
+      .then((data) => {
+        setCourseTitle(data.data.title);
+        setCourseDescription(data.data.description);
+        setCoursePrice(data.data.price);
+        window.alert("進入編輯頁面");
+        navigate("/edit");
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+
+  // 取消註冊(學生)
   const handleCancel = (e) => {
     CourseService.deleteEnroll(e.target.id)
       .then(() => {
@@ -57,25 +76,6 @@ const CourseComponent = ({
       });
   };
 
-  const handleEdit = (e) => {
-    //console.log(e.target.id);
-    setCourseID(e.target.id);
-    CourseService.getEdit(e.target.id)
-      .then((data) => {
-        //console.log(data.data.title);
-        setCourseTitle(data.data.title);
-        setCourseDescription(data.data.description);
-        setCoursePrice(data.data.price);
-        window.alert("進入編輯頁面");
-
-        // navigate(`/edit/${e.target.id}`);
-        navigate("/edit");
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  };
-
   useEffect(() => {
     let _id;
     if (currentUser) {
@@ -83,7 +83,6 @@ const CourseComponent = ({
       if (currentUser.user.role == "instructor") {
         CourseService.get(_id)
           .then((data) => {
-            //console.log(data);
             setCourseData(data.data);
           })
           .catch((e) => {
@@ -92,7 +91,6 @@ const CourseComponent = ({
       } else if (currentUser.user.role == "student") {
         CourseService.getEnrolledCourse(_id)
           .then((data) => {
-            //console.log(data);
             setCourseData(data.data);
           })
           .catch((e) => {
@@ -151,7 +149,7 @@ const CourseComponent = ({
                   {currentUser.user.role != "student" && (
                     <a
                       href="#"
-                      class="card-link btn btn-primary"
+                      className="card-link btn btn-primary"
                       id={course._id}
                       onClick={handleDelete}
                     >
@@ -161,9 +159,8 @@ const CourseComponent = ({
                   {currentUser.user.role != "student" && (
                     <a
                       id={course._id}
-                      //href={`/edit/${course._id}`}
                       href="#"
-                      class="card-link btn btn-primary"
+                      className="card-link btn btn-primary"
                       onClick={handleEdit}
                     >
                       編輯課程
@@ -172,7 +169,7 @@ const CourseComponent = ({
                   {currentUser.user.role != "instructor" && (
                     <a
                       href="#"
-                      class="card-link btn btn-primary"
+                      className="card-link btn btn-primary"
                       id={course._id}
                       onClick={handleCancel}
                     >

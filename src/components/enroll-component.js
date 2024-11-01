@@ -6,12 +6,17 @@ const EnrollComponent = ({ currentUser, setCurrentUser }) => {
   const navigate = useNavigate();
   let [searchInput, setSearchInput] = useState("");
   let [searchResult, setSearchResult] = useState(null);
+
   const handleTakeToLogin = () => {
     navigate("/login");
   };
+
+  // 搜尋課程(輸入)
   const handleChangeInput = (e) => {
     setSearchInput(e.target.value);
   };
+
+  // 搜尋課程(按鈕)
   const handleSearch = () => {
     CourseService.getCourseByName(searchInput)
       .then((data) => {
@@ -22,6 +27,8 @@ const EnrollComponent = ({ currentUser, setCurrentUser }) => {
         console.log(e);
       });
   };
+
+  // 註冊課程
   const handleEnroll = (e) => {
     CourseService.enroll(e.target.id)
       .then(() => {
