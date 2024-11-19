@@ -63,10 +63,10 @@ const PostCourseComponent = ({ currentUser, setCurrentUser }) => {
           <br />
           <label for="exampleforContent">課程內容：</label>
           <textarea
+            name="content"
+            type="text"
             className="form-control"
             id="exampleforContent"
-            //aria-describedby="emailHelp"
-            name="content"
             onChange={handleChangeDesciption}
           />
           <br />

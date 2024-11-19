@@ -61,9 +61,9 @@ const EnrollComponent = ({ currentUser, setCurrentUser }) => {
       {currentUser && currentUser.user.role == "student" && (
         <div className="search input-group mb-3">
           <input
-            onChange={handleChangeInput}
             type="text"
             className="form-control"
+            onChange={handleChangeInput}
           />
           <button onClick={handleSearch} className="btn btn-primary">
             搜尋課程
@@ -72,7 +72,7 @@ const EnrollComponent = ({ currentUser, setCurrentUser }) => {
       )}
       {currentUser && searchResult && searchResult.length != 0 && (
         <div>
-          <p>這是我們從 API 返回的數據: </p>
+          {/* <p>這是我們從 API 返回的數據: </p> */}
           {searchResult.map((course) => {
             return (
               <div key={course._id} className="card" style={{ width: "18rem" }}>

@@ -15,8 +15,8 @@ import Aboutcomponent from "./components/about-component";
 function App() {
   // 確認使用者身分
   let [currentUser, setCurrentUser] = useState(AuthService.getCurrentUser());
-  let [courseID, setCourseID] = useState("");
   // 更新課程內容
+  let [courseID, setCourseID] = useState("");
   let [courseTitle, setCourseTitle] = useState("");
   let [courseDescription, setCourseDescription] = useState("");
   let [coursePrice, setCoursePrice] = useState(0);

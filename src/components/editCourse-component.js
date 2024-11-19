@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CourseService from "../services/course.service";
 
@@ -10,9 +10,9 @@ const EditCourseComponent = ({
   courseDescription,
   coursePrice,
 }) => {
-  let [newtitle, setNewTitle] = useState(courseTitle);
-  let [newdescription, setNewDescription] = useState(courseDescription);
-  let [newprice, setNewPrice] = useState(coursePrice);
+  let [newTitle, setNewTitle] = useState(courseTitle);
+  let [newDescription, setNewDescription] = useState(courseDescription);
+  let [newPrice, setNewPrice] = useState(coursePrice);
   let [message, setMessage] = useState("");
 
   const navigate = useNavigate();
@@ -32,7 +32,7 @@ const EditCourseComponent = ({
   // 編輯課程
   const updateCourse = (e) => {
     //console.log(e.target);
-    CourseService.update(courseID, newtitle, newdescription, newprice)
+    CourseService.update(courseID, newTitle, newDescription, newPrice)
       .then(() => {
         window.alert("課程內容更新成功 !");
         navigate("/course");
@@ -70,16 +70,17 @@ const EditCourseComponent = ({
             className="form-control"
             id="exampleforTitle"
             onChange={handleNewTitle}
-            value={newtitle}
+            value={newTitle}
           />
           <br />
           <label for="exampleforContent">課程內容：</label>
           <textarea
+            name="content"
+            type="text"
             className="form-control"
             id="exampleforContent"
-            name="content"
             onChange={handleNewDesciption}
-            value={newdescription}
+            value={newDescription}
           />
           <br />
           <label for="exampleforPrice">價格：</label>
@@ -89,7 +90,7 @@ const EditCourseComponent = ({
             className="form-control"
             id="exampleforPrice"
             onChange={handleNewPrice}
-            value={newprice}
+            value={newPrice}
           />
           <br />
           <button onClick={updateCourse} className="btn btn-primary">

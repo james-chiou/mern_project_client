@@ -3,6 +3,7 @@ import axios from "axios";
 const API_URL = "https://mern-project-server-8uib.onrender.com/api/course";
 
 class CourseService {
+  // 建立新課程
   post(title, description, price) {
     let token;
     if (localStorage.getItem("user")) {
@@ -10,7 +11,7 @@ class CourseService {
     } else {
       token = "";
     }
-    console.log(token);
+
     return axios.post(
       API_URL,
       { title, description, price },
@@ -22,7 +23,7 @@ class CourseService {
     );
   }
 
-  // 使用student id找到學生註冊的課程
+  // 使用學生 ID找到學生註冊的課程
   getEnrolledCourse(_id) {
     let token;
     if (localStorage.getItem("user")) {
@@ -38,7 +39,7 @@ class CourseService {
     });
   }
 
-  // 使用instructor id來找到講師擁有的課程
+  // 使用教師 ID來找到講師擁有的課程
   get(_id) {
     let token;
     if (localStorage.getItem("user")) {
@@ -53,7 +54,7 @@ class CourseService {
       },
     });
   }
-
+  // 使用課程 ID來找到更新的課程
   getEdit(_id) {
     let token;
     if (localStorage.getItem("user")) {
@@ -68,7 +69,7 @@ class CourseService {
       },
     });
   }
-
+  // 更新課程
   update(_id, title, description, price) {
     {
       let token;
@@ -88,7 +89,7 @@ class CourseService {
       );
     }
   }
-
+  // 透過課程名稱找到要註冊的課程
   getCourseByName(name) {
     let token;
     if (localStorage.getItem("user")) {
