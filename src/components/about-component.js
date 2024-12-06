@@ -5,7 +5,7 @@ const Aboutcomponent = () => {
     <main>
       <div className="ps-3 bg-light rounded-3">
         <div className="container-fluid py-3">
-          <h1 className="display-6 fw-bold">Projrct 9 - 學習系統</h1>
+          <h1 className="display-6 fw-bold">學習系統</h1>
           <ul className="list-unstyled">
             <li className="col-md-10 fs-5">
               <ol>
@@ -14,7 +14,7 @@ const Aboutcomponent = () => {
                   登入後會在個人頁面看見個人資料、在課程頁面可以看到使用者所創建或註冊的課程。
                 </li>
                 <li className="col-md-10 fs-5 my-2">
-                  Node.js作為後端框架，用來處理Route、API、資料傳遞、資料加密等。而MongoDB則是處理儲存資料的部分。
+                  以Node.js作為後端框架，用來處理Route、API、資料傳遞、資料加密等。而資料庫則是使用MongoDB。
                 </li>
               </ol>
             </li>
