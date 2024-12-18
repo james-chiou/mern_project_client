@@ -72,7 +72,7 @@ const CourseComponent = ({
         navigate("/course");
       })
       .catch((e) => {
-        console.log(e.message);
+        console.log(e);
       });
   };
 

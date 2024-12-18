@@ -7,7 +7,7 @@ const HomeComponent = () => {
       <div className="container py-4">
         <div className="p-5 mb-4 bg-light rounded-3">
           <div className="container-fluid py-5">
-            <h1 className="display-5 fw-bold">學習系統</h1>
+            <h1 className="display-5 fw-bold">線上學習系統</h1>
             <p className="col-md-8 fs-4">
               本系統使用React.js作為前端框架，Node.js、MongoDB
               作為後端服務器。這種項目稱為 MERN
