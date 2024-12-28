@@ -4,6 +4,10 @@
 ## 目標
 1. 使用React、Express、Node.js與MongoDB完成一個MERN專案
 2. 模仿線上學習網站，老師可以開設課程，而學生能夠註冊想要學習的課程
+## 使用套件
+1. react
+2. react-router-dom
+3. axios
 ## 功能
 1. React Components包含  
    1. 主頁面
