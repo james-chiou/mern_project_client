@@ -160,7 +160,7 @@ const CourseComponent = ({
                     學生人數：{course.students.length}
                   </p>
                   <p style={{ margin: "0.5rem 0rem" }}>
-                    課程價格：{course.price}
+                    課程價格：{formatPrice(course.price)}
                   </p>
                   {currentUser.user.role != "student" && (
                     <a
