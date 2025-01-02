@@ -1,70 +1,41 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# 線上學習網站 (前端)  
+1. 本專案為前、後端分離
+2. 前端以React.js為框架，[後端](https://github.com/james-chiou/mern_project_server)則以Express.js為框架
+## 目標
+1. 使用React、Express、Node.js與MongoDB完成一個MERN專案
+2. 模仿線上學習網站，老師可以開設課程，而學生能夠註冊想要學習的課程
+## 使用套件
+1. react
+2. react-router-dom
+3. axios
+## 功能
+1. React Components包含  
+   1. 主頁面
+   2. 註冊會員/登入會員
+   3. 個人頁面/課程頁面
+   4. 會員身份為 教師 
+      * 新增課程頁面/編輯課程頁面
+   6. 會員身份為 學生 
+      * 註冊課程頁面
+2. React Service包含  
+   1. 會員資料相關(auth.service.js):
+      * 登入/登出/註冊會員
+      * 設定API與後端串連，其中Home_URL為localhost或是部署後的URL
+        ```javascript
+        const API_URL = "{Home_URL}/api/user"
+        ```
+   2. 課程相關(course.service.js):
+      * 設定API與後端串連，其中Home_URL為localhost或是部署後的URL
+        ```javascript
+        const API_URL = "{Home_URL}/api/course"
+        ```   
+      1. 會員身份為 教師  
+         * 新增課程/編輯課程內容/刪除課程  
+           <img src="public/project9-2.jpg" alt="" width="50%"/>
+      2. 會員身份為 學生  
+         * 註冊課程/取消註冊課程  
+           <img src="public/project9-3.jpg" alt="" width="50%"/>
+           <img src="public/project9-4.jpg" alt="" width="50%"/>
+3. 本專案使用[Render](https://render.com/)網站進行部署，前往[線上學習網站](https://mern-project-client-49t7.onrender.com)
+## 注意事項
+因Render網站的決策，本專案的Server不使用時會進入睡眠，所以在進行註冊/登入時會需要等待30秒以上。
