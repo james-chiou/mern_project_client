@@ -31,11 +31,11 @@
         ```   
       1. 會員身份為 教師  
          * 新增課程/編輯課程內容/刪除課程  
-           <img src="public/project9-2.jpg" alt="" width="40%"/>
+           <img src="public/project9-2.jpg" alt="" width="50%"/>
       2. 會員身份為 學生  
          * 註冊課程/取消註冊課程  
-           <img src="public/project9-3.jpg" alt="" width="40%"/>
-           <img src="public/project9-4.jpg" alt="" width="40%"/>
+           <img src="public/project9-3.jpg" alt="" width="50%"/>
+           <img src="public/project9-4.jpg" alt="" width="50%"/>
 3. 本專案使用[Render](https://render.com/)網站進行部署，前往[線上學習網站](https://mern-project-client-49t7.onrender.com)
 ## 注意事項
 因Render網站的決策，本專案的Server不使用時會進入睡眠，所以在進行註冊/登入時會需要等待30秒以上。
