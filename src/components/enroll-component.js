@@ -36,6 +36,11 @@ const EnrollComponent = ({ currentUser, setCurrentUser }) => {
         navigate("/course");
       })
       .catch((e) => {
+        if (e.response && e.response.data === "你已註冊過此課程") {
+          window.alert("你已註冊過此課程。");
+        } else {
+          window.alert("註冊失敗，請稍後再試。");
+        }
         console.log(e);
       });
   };
