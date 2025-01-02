@@ -99,6 +99,22 @@ const CourseComponent = ({
       }
     }
   }, []);
+  //價格格式化
+  const formatPrice = (num) => {
+    let str = num.toString();
+    let res = "";
+    let count = 0;
+
+    for (let i = str.length - 1; i >= 0; i--) {
+      res = str[i] + res;
+      count++;
+
+      if (count % 3 === 0 && i !== 0) {
+        res = "," + res;
+      }
+    }
+    return res;
+  };
 
   return (
     <div style={{ padding: "3rem" }}>
